@@ -1,7 +1,8 @@
 import { formatDate } from '@/lib/format';
 import LikeButton from './like-icon';
+import { POST } from '@/lib/posts';
 
-function Post({ post }) {
+function Post({ post }: { post: POST }) {
   return (
     <article className="post">
       <div className="post-image">
@@ -14,7 +15,7 @@ function Post({ post }) {
             <p>
               Shared by {post.userFirstName} on{' '}
               <time dateTime={post.createdAt}>
-                {formatDate(post.createdAt)}
+                {formatDate(post.createdAt as string)}
               </time>
             </p>
           </div>
@@ -28,7 +29,7 @@ function Post({ post }) {
   );
 }
 
-export default function Posts({ posts }) {
+export default function Posts({ posts }: { posts: POST[] }) {
   if (!posts || posts.length === 0) {
     return <p>There are no posts yet. Maybe start sharing some?</p>;
   }
