@@ -8,6 +8,8 @@ export type POST = {
   createdAt?: string;
   userFirstName?: string | null;
   userLastName?: string | null;
+  isLiked?: boolean;
+  likes?: number;
 };
 
 import sql from 'better-sqlite3';
